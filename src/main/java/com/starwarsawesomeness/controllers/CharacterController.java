@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("users")
+@Path("characters")
 @Consumes("application/json")
 @Produces("application/json")
 public class CharacterController {
@@ -20,11 +20,13 @@ public class CharacterController {
     @POST
     @Path("jedi")
     public void createJedi(JediModel jediModel) {
+        characterDao.saveCharacter(jediModel);
     }
 
     @POST
     @Path("soldier")
     public void create(SoldierModel soldierModel) {
+        characterDao.saveCharacter(soldierModel);
     }
 
     @GET

@@ -18,7 +18,7 @@ public abstract class CharacterModel implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private String biograhpy;
+    private String biography;
     @Enumerated(value = EnumType.STRING)
     private Affliation affiliation;
     @Enumerated(value = EnumType.STRING)
@@ -26,10 +26,10 @@ public abstract class CharacterModel implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private Race race;
 
-    public CharacterModel(String firstName, String lastName, String biograhpy, Affliation affiliation, PhysicalStrength physicalStrength, Race race) {
+    public CharacterModel(String firstName, String lastName, String biography, Affliation affiliation, PhysicalStrength physicalStrength, Race race) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.biograhpy = biograhpy;
+        this.biography = biography;
         this.affiliation = affiliation;
         this.physicalStrength = physicalStrength;
         this.race = race;
@@ -58,12 +58,12 @@ public abstract class CharacterModel implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getBiograhpy() {
-        return biograhpy;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setBiograhpy(String biograhpy) {
-        this.biograhpy = biograhpy;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
     public Affliation getAffiliation() {

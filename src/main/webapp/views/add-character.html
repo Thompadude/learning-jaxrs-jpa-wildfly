@@ -19,10 +19,64 @@
                     <input id="input-last-name" class="form-control" type="text" placeholder="Last Name">
                 </div>
                 <div class="form-group">
-                    <label><input name="input-class" type="radio" value="jedi" checked="checked"> Jedi</label>
-                    <label><input name="input-class" type="radio" value="soldier"> Soldier</label>
+                    <textarea id="input-biography" class="form-control" rows="5" placeholder="Biograhpy"></textarea>
                 </div>
-                <button id="btn-submit" class="btn btn-success" type="button">Create New Character</button>
+                <div class="form-group">
+                    <label for="input-affiliation">Affiliation</label>
+                    <select class="form-control" id="input-affiliation">
+                        <option value="dark">Dark Side</option>
+                        <option value="light">Light Side</option>
+                        <option>Neutral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-class">Class</label>
+                    <select class="form-control" id="input-class">
+                        <option>Jedi</option>
+                        <option>Soldier</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-physicalstrength">Physcial Strength</label>
+                    <select class="form-control" id="input-physicalstrength">
+                        <option>Poor</option>
+                        <option>Typical</option>
+                        <option>Normal</option>
+                        <option>Sensational</option>
+                        <option>Unearthly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-race">Race</label>
+                    <select class="form-control" id="input-race">
+                        <option>Human</option>
+                        <option>Duro</option>
+                        <option>Wookiee</option>
+                        <option>Cerean</option>
+                        <option>Bothan</option>
+                        <option>Sullustan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-rank">Rank</label>
+                    <select class="form-control" id="input-rank">
+                        <option>Initiate</option>
+                        <option>Novice</option>
+                        <option>Acolyte</option>
+                        <option>Knight</option>
+                        <option>Master</option>
+                        <option>Prophet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-weapon">Weapon</label>
+                    <select class="form-control" id="input-weapon">
+                        <option>Blaster</option>
+                        <option>Crossbow</option>
+                        <option>Unarmed</option>
+                    </select>
+                </div>
+                <button id="btn-submit" class="btn btn-success" type="button" disabled>Create New Character</button>
             </form>
         </div>
     </div>
