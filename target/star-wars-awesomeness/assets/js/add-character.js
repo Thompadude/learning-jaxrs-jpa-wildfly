@@ -1,10 +1,11 @@
 $(document).ready(function () {
 
     var baseUrl = "http://localhost:8080/star-wars-awesomeness/resources/characters/";
+    var classUrl = $('#input-class option:selected').val().toLowerCase();
 
     $(document).on('click', '#btn-submit', function () {
 
-        var classUrl = $('#input-class option:selected').val().toLowerCase();
+        classUrl = $('#input-class option:selected').val().toLowerCase();
         var postUrl = baseUrl + classUrl;
 
         $.ajax({
@@ -21,6 +22,20 @@ $(document).ready(function () {
         });
     });
 
+
+    var isJediOptionsDisabled;
+    var isSoldierOptionsDisabled = true;
+    $('#input-class').change(function () {
+        isJediOptionsDisabled = !isJediOptionsDisabled;
+        isSoldierOptionsDisabled = !isSoldierOptionsDisabled;
+
+        console.log("isJediOptionsDisabled " + isJediOptionsDisabled);
+        console.log("isSoldierOptionsDisabled " + isSoldierOptionsDisabled);
+
+        $('.input-for-jedi').prop('disabled', isJediOptionsDisabled);
+        $('.input-for-soldier').prop('disabled', isSoldierOptionsDisabled);
+    });
+
     function convertToJsonString() {
         return JSON.stringify({
             "firstName": $('#input-first-name').val(),
@@ -30,7 +45,7 @@ $(document).ready(function () {
             "physicalStrength": $('#input-physicalstrength option:selected').val().toUpperCase(),
             "race": $('#input-race option:selected').val().toUpperCase(),
             "rank": $('#input-rank option:selected').val().toUpperCase(),
-            //"weapon": $('#input-weapon option:selected').val().toUpperCase()
+            "weapon": $('#input-weapon option:selected').val().toUpperCase()
         });
     }
 

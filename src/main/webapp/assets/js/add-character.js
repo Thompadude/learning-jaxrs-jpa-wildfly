@@ -1,10 +1,11 @@
 $(document).ready(function () {
 
     var baseUrl = "http://localhost:8080/star-wars-awesomeness/resources/characters/";
+    var classUrl = $('#input-class option:selected').val().toLowerCase();
 
     $(document).on('click', '#btn-submit', function () {
 
-        var classUrl = $('#input-class option:selected').val().toLowerCase();
+        classUrl = $('#input-class option:selected').val().toLowerCase();
         var postUrl = baseUrl + classUrl;
 
         $.ajax({
@@ -13,12 +14,22 @@ $(document).ready(function () {
             data: convertToJsonString(),
             headers: {'Content-Type': 'application/json'},
             success: function (response) {
-                console.log("Character successfully created.")
+                console.log("Character successfully created")
             },
             error: function (error) {
                 alert("Character creation failed")
             }
         });
+    });
+
+    var isJediOptionsDisabled;
+    var isSoldierOptionsDisabled = true;
+    $('#input-class').change(function () {
+        isJediOptionsDisabled = !isJediOptionsDisabled;
+        isSoldierOptionsDisabled = !isSoldierOptionsDisabled;
+
+        $('.input-for-jedi').prop('disabled', isJediOptionsDisabled);
+        $('.input-for-soldier').prop('disabled', isSoldierOptionsDisabled);
     });
 
     function convertToJsonString() {
