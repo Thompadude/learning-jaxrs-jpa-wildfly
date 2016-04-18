@@ -14,7 +14,7 @@ $(document).ready(function () {
             data: convertToJsonString(),
             headers: {'Content-Type': 'application/json'},
             success: function (response) {
-                console.log("Character successfully created")
+                window.location.replace('../index.html');
             },
             error: function (error) {
                 alert("Character creation failed")

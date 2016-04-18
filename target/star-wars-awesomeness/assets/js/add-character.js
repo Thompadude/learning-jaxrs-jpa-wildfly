@@ -14,7 +14,7 @@ $(document).ready(function () {
             data: convertToJsonString(),
             headers: {'Content-Type': 'application/json'},
             success: function (response) {
-                console.log("Character successfully created.")
+                window.location.replace('../index.html');
             },
             error: function (error) {
                 alert("Character creation failed")
@@ -22,15 +22,11 @@ $(document).ready(function () {
         });
     });
 
-
     var isJediOptionsDisabled;
     var isSoldierOptionsDisabled = true;
     $('#input-class').change(function () {
         isJediOptionsDisabled = !isJediOptionsDisabled;
         isSoldierOptionsDisabled = !isSoldierOptionsDisabled;
-
-        console.log("isJediOptionsDisabled " + isJediOptionsDisabled);
-        console.log("isSoldierOptionsDisabled " + isSoldierOptionsDisabled);
 
         $('.input-for-jedi').prop('disabled', isJediOptionsDisabled);
         $('.input-for-soldier').prop('disabled', isSoldierOptionsDisabled);

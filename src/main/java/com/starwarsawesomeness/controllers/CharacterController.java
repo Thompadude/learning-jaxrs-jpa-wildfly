@@ -35,8 +35,10 @@ public class CharacterController {
         return null;
     }
 
-    public List<CharacterModel> readAll() {
-        return null;
+    @GET
+    @Path("jedis")
+    public List readJedis() {
+        return characterDao.getJedis();
     }
 
     public void update(CharacterModel c) {

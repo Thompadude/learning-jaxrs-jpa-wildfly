@@ -1,5 +1,6 @@
 package com.starwarsawesomeness.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.starwarsawesomeness.models.enums.Affliation;
 import com.starwarsawesomeness.models.enums.PhysicalStrength;
 import com.starwarsawesomeness.models.enums.Race;
@@ -8,9 +9,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@DiscriminatorColumn(name = "role")
 @Table(name = "characters")
 @Inheritance
-@DiscriminatorColumn(name = "role")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class CharacterModel implements Serializable {
 
     @Id

@@ -10,8 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Entity
 @DiscriminatorValue("soldier")
+@Entity
 public class SoldierModel extends CharacterModel {
 
     @Enumerated(EnumType.STRING)

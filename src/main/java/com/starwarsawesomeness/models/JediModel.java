@@ -1,17 +1,16 @@
 package com.starwarsawesomeness.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.starwarsawesomeness.models.enums.Affliation;
 import com.starwarsawesomeness.models.enums.PhysicalStrength;
 import com.starwarsawesomeness.models.enums.Race;
 import com.starwarsawesomeness.models.enums.Rank;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
-@Entity
 @DiscriminatorValue(value = "jedi")
+@Entity
+@NamedQuery(name = "Jedi.findAll", query="SELECT j FROM JediModel j")
 public class JediModel extends CharacterModel {
 
     @Enumerated(value = EnumType.STRING)
