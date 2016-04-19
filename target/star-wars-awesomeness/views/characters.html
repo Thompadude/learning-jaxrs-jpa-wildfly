@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StarWarsAwesomeness">
+<head>
+    <meta charset="UTF-8">
+    <title>Character List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/stylesheet.css">
+</head>
+<body ng-controller="CharacterController">
+<div class="container">
+    <section class="section-characters">
+        <input class="form-control" type="text" placeholder="Filter Characters" ng-model="searchCharacterText">
+        <h2>Jedis</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><a href="#" ng-click="sortTypeJedis = 'firstName'">First Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'firstName'"></span></th>
+                    <th><a href="#" ng-click="sortTypeJedis = 'lastName'">Last Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'lastName'"></span></th>
+                    <th><a href="#" ng-click="sortTypeJedis = 'affiliation'">Affiliation</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'affiliation'"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="capitalized" ng-repeat="jedi in listOfJedis | orderBy:sortTypeJedis | filter:searchCharacterText">
+                    <th>{{ jedi.firstName | lowercase }}</th>
+                    <th>{{ jedi.lastName | lowercase }}</th>
+                    <th>{{ jedi.affiliation | lowercase }}</th>
+                    <th><a href="#" id="{{ jedi.id }}" ng-click="viewCharacter($event)">Profile</a></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>Soldiers</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><a href="#" ng-click="sortTypeSoldiers='firstName'">First Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'firstName'"></span></th>
+                    <th><a href="#" ng-click="sortTypeSoldiers='lastName'">Last Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'lastName'"></span></th>
+                    <th><a href="#" ng-click="sortTypeSoldiers='affiliation'">Affiliation</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'affiliation'"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="capitalized" ng-repeat="soldier in listOfSoldiers | orderBy:sortTypeSoldiers | filter:searchCharacterText">
+                    <th>{{ soldier.firstName | lowercase }}</th>
+                    <th>{{ soldier.lastName | lowercase }}</th>
+                    <th>{{ soldier.affiliation | lowercase }}</th>
+                    <th><a href="#" id="{{ soldier.id }}" ng-click="viewCharacter($event)">Profile</a></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="section-character-profile" ng-hide="characterProfile == null">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ characterProfile.firstName }}
+                {{ characterProfile.lastName }}
+            </div>
+            <div class="panel-body">
+                <p><span class="capitalized">Affiliation: {{ characterProfile.affiliation | lowercase }} </span></p>
+                <p>Biography: {{ characterProfile.biography }}</p>
+                <p><span class="capitalized">Physical Strength: {{ characterProfile.physicalStrength | lowercase }} </span></p>
+                <p><span class="capitalized">Race: {{ characterProfile.race | lowercase }} </span></p>
+                <p><span class="capitalized" ng-hide="characterProfile.rank == null">Rank: {{ characterProfile.rank | lowercase }} </span></p>
+                <p><span class="capitalized" ng-hide="characterProfile.weapon == null">Weapon: {{ characterProfile.weapon | lowercase }} </span></p>
+            </div>
+        </div>
+        <p><a href="#" ng-click="backToCharacterList()">Back to Character List</a></p>
+    </section>
+    <p class="section-characters"><a href="../index.html">Back to Index</a></p>
+</div>
+<!-- jQuery, Bootstrap, Angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<!-- Modules -->
+<script src="../app.js"></script>
+<!-- Controllers -->
+<script src="../controllers/characterController.js"></script>
+<!-- Directories -->
+<!-- Custom -->
+</body>
+</html>

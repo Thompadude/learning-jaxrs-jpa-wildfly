@@ -32,7 +32,7 @@ public class CharacterController {
     @GET
     @Path("{id}")
     public CharacterModel read(@PathParam("id") Long id) {
-        return null;
+        return characterDao.readCharacter(id);
     }
 
     @GET
@@ -41,7 +41,13 @@ public class CharacterController {
         return characterDao.getJedis();
     }
 
-    public void update(CharacterModel c) {
+    @GET
+    @Path("soldiers")
+    public List readSoldiers() {
+        return characterDao.getSoldiers();
+    }
+
+    public void update() {
     }
 
     public void remove(Long id) {

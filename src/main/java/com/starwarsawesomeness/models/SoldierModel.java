@@ -5,13 +5,11 @@ import com.starwarsawesomeness.models.enums.Affliation;
 import com.starwarsawesomeness.models.enums.PhysicalStrength;
 import com.starwarsawesomeness.models.enums.Race;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
-@DiscriminatorValue("soldier")
+@DiscriminatorValue(value = "soldier")
 @Entity
+@NamedQuery(name = "Soldier.findAll", query = "SELECT s FROM SoldierModel s")
 public class SoldierModel extends CharacterModel {
 
     @Enumerated(EnumType.STRING)

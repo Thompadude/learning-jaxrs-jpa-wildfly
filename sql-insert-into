@@ -1,0 +1,12 @@
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('jedi', 'DARK', 'Luke Skywalker''s father', 'Darth', 'Vader', 'SENSATIONAL', 'HUMAN', 'MASTER', NULL);
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('jedi', 'LIGHT', 'Luke Skywalker himself', 'Luke', 'Skywalker', 'NORMAL', 'HUMAN', 'MASTER', NULL);
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('soldier', 'LIGHT', 'The One and only', 'Han', 'Solo', 'NORMAL', 'HUMAN', NULL, 'BLASTER');
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('soldier', 'LIGHT', 'Luke Skywalker''s sister', 'Leia', 'Organa', 'TYPICAL', 'HUMAN', NULL, 'BLASTER');
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('jedi', 'DARK', 'Han and Leia''s son', 'Kylo', 'Ren', 'NORMAL', 'HUMAN', 'ACOLYTE', NULL);
+insert into characters(role, affiliation, biography, firstName, lastName, physicalStrength, race, rank, weapon)
+values ('soldier', 'LIGHT', 'GROOOOOOWLLALAWL', 'Chewbacca', 'No last name known', 'UNEARTHLY', 'WOOKIEE', NULL, 'CROSSBOW');
