@@ -1,0 +1,20 @@
+<h2>Jedis</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><a href="#" ng-click="sortTypeJedis = 'firstName'">First Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'firstName'"></span></th>
+            <th><a href="#" ng-click="sortTypeJedis = 'lastName'">Last Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'lastName'"></span></th>
+            <th><a href="#" ng-click="sortTypeJedis = 'affiliation'">Affiliation</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'affiliation'"></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="capitalized" ng-repeat="jedi in listOfJedis | orderBy:sortTypeJedis | filter:searchCharacterText">
+            <th>{{ jedi.firstName | lowercase }}</th>
+            <th>{{ jedi.lastName | lowercase }}</th>
+            <th>{{ jedi.affiliation | lowercase }}</th>
+            <th><a href="#" id="{{ jedi.id }}" ng-click="viewCharacter($event)">Profile</a></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
