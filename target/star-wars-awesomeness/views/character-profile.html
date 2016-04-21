@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{ characterProfile.firstName }}
+        {{ characterProfile.lastName }}
+    </div>
+    <div class="panel-body">
+        <p><span class="capitalized">Affiliation: {{ characterProfile.affiliation | lowercase }} </span></p>
+
+        <p>Biography: {{ characterProfile.biography }}</p>
+
+        <p><span class="capitalized">Physical Strength: {{ characterProfile.physicalStrength | lowercase }} </span></p>
+
+        <p><span class="capitalized">Race: {{ characterProfile.race | lowercase }} </span></p>
+
+        <p><span class="capitalized" ng-hide="characterProfile.rank == null">Rank: {{ characterProfile.rank | lowercase }} </span></p>
+
+        <p><span class="capitalized" ng-hide="characterProfile.weapon == null">Weapon: {{ characterProfile.weapon | lowercase }} </span></p>
+    </div>
+</div>

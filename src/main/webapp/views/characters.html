@@ -10,27 +10,11 @@
 <div class="container">
     <section class="section-characters">
         <input class="form-control" type="text" placeholder="Filter Characters" ng-model="searchCharacterText">
-
         <jedi-list></jedi-list>
-
         <soldier-list></soldier-list>
-
     </section>
     <section id="section-character-profile" ng-hide="characterProfile == null">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                {{ characterProfile.firstName }}
-                {{ characterProfile.lastName }}
-            </div>
-            <div class="panel-body">
-                <p><span class="capitalized">Affiliation: {{ characterProfile.affiliation | lowercase }} </span></p>
-                <p>Biography: {{ characterProfile.biography }}</p>
-                <p><span class="capitalized">Physical Strength: {{ characterProfile.physicalStrength | lowercase }} </span></p>
-                <p><span class="capitalized">Race: {{ characterProfile.race | lowercase }} </span></p>
-                <p><span class="capitalized" ng-hide="characterProfile.rank == null">Rank: {{ characterProfile.rank | lowercase }} </span></p>
-                <p><span class="capitalized" ng-hide="characterProfile.weapon == null">Weapon: {{ characterProfile.weapon | lowercase }} </span></p>
-            </div>
-        </div>
+        <character-profile></character-profile>
         <p><a href="#" ng-click="backToCharacterList()">Back to Character List</a></p>
     </section>
     <p class="section-characters"><a href="../index.html">Back to Index</a></p>
@@ -46,6 +30,7 @@
 <!-- Directives -->
 <script src="../app/directives/jedis.js"></script>
 <script src="../app/directives/soldiers.js"></script>
+<script src="../app/directives/character.profile.js"></script>
 <!-- Custom -->
 </body>
 </html>
