@@ -10,46 +10,11 @@
 <div class="container">
     <section class="section-characters">
         <input class="form-control" type="text" placeholder="Filter Characters" ng-model="searchCharacterText">
-        <h2>Jedis</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th><a href="#" ng-click="sortTypeJedis = 'firstName'">First Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'firstName'"></span></th>
-                    <th><a href="#" ng-click="sortTypeJedis = 'lastName'">Last Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'lastName'"></span></th>
-                    <th><a href="#" ng-click="sortTypeJedis = 'affiliation'">Affiliation</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeJedis == 'affiliation'"></span></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="capitalized" ng-repeat="jedi in listOfJedis | orderBy:sortTypeJedis | filter:searchCharacterText">
-                    <th>{{ jedi.firstName | lowercase }}</th>
-                    <th>{{ jedi.lastName | lowercase }}</th>
-                    <th>{{ jedi.affiliation | lowercase }}</th>
-                    <th><a href="#" id="{{ jedi.id }}" ng-click="viewCharacter($event)">Profile</a></th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <h2>Soldiers</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th><a href="#" ng-click="sortTypeSoldiers='firstName'">First Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'firstName'"></span></th>
-                    <th><a href="#" ng-click="sortTypeSoldiers='lastName'">Last Name</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'lastName'"></span></th>
-                    <th><a href="#" ng-click="sortTypeSoldiers='affiliation'">Affiliation</a><span class="glyphicon glyphicon-triangle-bottom" ng-show="sortTypeSoldiers == 'affiliation'"></span></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="capitalized" ng-repeat="soldier in listOfSoldiers | orderBy:sortTypeSoldiers | filter:searchCharacterText">
-                    <th>{{ soldier.firstName | lowercase }}</th>
-                    <th>{{ soldier.lastName | lowercase }}</th>
-                    <th>{{ soldier.affiliation | lowercase }}</th>
-                    <th><a href="#" id="{{ soldier.id }}" ng-click="viewCharacter($event)">Profile</a></th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+
+        <jedi-list></jedi-list>
+
+        <soldier-list></soldier-list>
+
     </section>
     <section id="section-character-profile" ng-hide="characterProfile == null">
         <div class="panel panel-default">
@@ -69,9 +34,6 @@
         <p><a href="#" ng-click="backToCharacterList()">Back to Character List</a></p>
     </section>
     <p class="section-characters"><a href="../index.html">Back to Index</a></p>
-
-    <test-dir></test-dir>
-
 </div>
 <!-- jQuery, Bootstrap, Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -81,8 +43,9 @@
 <script src="../app/app.js"></script>
 <!-- Controllers -->
 <script src="../app/controllers/CharacterCtrl.js"></script>
-<!-- Directories -->
-<script src="../app/directives/testdirective.js"></script>
+<!-- Directives -->
+<script src="../app/directives/jedis.js"></script>
+<script src="../app/directives/soldiers.js"></script>
 <!-- Custom -->
 </body>
 </html>
